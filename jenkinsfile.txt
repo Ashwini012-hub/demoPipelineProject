@@ -4,11 +4,23 @@ pipeline{
   stages
 
 {
+
+       stage('checkout')
+       {
+       steps
+       {
+          echo 'pull the project.....'
+          checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'bd142da3-1154-42b7-8907-3d43cf8ad980', url:                        'https://github.com/Ashwini012-hub/demoPipelineProject.git']])
+       }
+       }
+
        stage('Build')
        {
        steps
        {
           echo 'building the project.....'
+          git branch: 'main', credentialsId: 'bd142da3-1154-42b7-8907-3d43cf8ad980', url: 'https://github.com/Ashwini012-hub/demoPipelineProject.git'
+          
        }
        }
        stage('Test')
