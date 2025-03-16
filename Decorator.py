@@ -11,6 +11,6 @@ def exec_time(func):
 @exec_time
 def addition(a,b):
     time.sleep(2)
-    result = a+b
-    return result
+    sum = a+b
+    return sum
 print(addition(4,5))
